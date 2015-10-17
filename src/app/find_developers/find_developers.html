@@ -1,6 +1,11 @@
 <div id="find-developers-page">
   <div class="skills">
-    <strong>Skills: Javascript, AngularJS, CoffeeScript, Java, GIT</p>
+    <ui-select multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled" style="width: 300px;">
+       <ui-select-match placeholder="Select skills...">{{$item}}</ui-select-match>
+       <ui-select-choices refresh="FindDevelopersCtrl.funcAsync($select.search)" refresh-delay="1000" repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search">
+         {{skill}}
+       </ui-select-choices>
+     </ui-select>
   </div>
   <div class="location">
     <p>From where?</p>
