@@ -1,17 +1,23 @@
 <div id="find-developers-page">
-  <div class="skills">
-    <ui-select multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled" style="width: 300px;">
-       <ui-select-match placeholder="Select skills...">{{$item}}</ui-select-match>
-       <ui-select-choices refresh="FindDevelopersCtrl.funcAsync($select.search)" refresh-delay="1000" repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search">
-         {{skill}}
-       </ui-select-choices>
-     </ui-select>
+  <div class="dev-stripe skills">
+    <div class="container">
+      <strong>Skills:</strong>
+      <ui-select multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled" style="width: 300px;">
+         <ui-select-match placeholder="Select skills...">{{$item}}</ui-select-match>
+         <ui-select-choices refresh="FindDevelopersCtrl.funcAsync($select.search)" refresh-delay="1000" repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search">
+           {{skill}}
+         </ui-select-choices>
+       </ui-select>
+    </div>
   </div>
-  <div class="location">
-    <p>From where?</p>
-    <input type="text" placeholder="Choose the location" />
-    <span>OR</span>
-    <label>anywhere</label>
-    <input type="checkbox" />
+  <div class="dev-stripe location">
+    <div class="container">
+      <strong>From where?</strong>
+      <div class="location-input">
+        <input type="text" placeholder="Choose the location" />
+        <span class="or">OR</span>
+        <div class="anywhere-btn">anywhere</div>
+      </div>
+    </div>
   </div>
 </div>
