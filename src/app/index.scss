@@ -35,11 +35,19 @@ header {
   background-color: $darkgrey;
   color: white;
   position: relative;
+  border-bottom: 5px solid $green;
 
   .logo {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 14px;
     font-size: 40px;
+
+    a {
+      display: inline-block;
+      color: $white;
+      text-decoration: none;
+      padding: 3px 20px;
+    }
   }
 
   .login-btn {
@@ -52,5 +60,16 @@ header {
       width:  40px;
       height: 40px;
     }
+  }
+}
+
+// Main page
+#main-page {
+  width: 100%;
+  .main-choice {
+    width: 50%;
+    display: inline-block;
+    height: 500px;
+    float: left;
   }
 }
