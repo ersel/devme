@@ -1,30 +1,9 @@
-angular.module 'devme'
-  .controller 'MainController', ($timeout, webDevTec, toastr) ->
+class MainCtrl
+
+  constructor: (@$state) ->
     'ngInject'
-    vm = this
-    activate = ->
-      getWebDevTec()
-      $timeout (->
-        vm.classAnimation = 'rubberBand'
-        return
-      ), 4000
-      return
 
-    showToastr = ->
-      toastr.info 'Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>'
-      vm.classAnimation = ''
-      return
+  goToDevelopers: -> @$state.go 'findDevs'
+  goToProjects:   -> @$state.go 'findProjects'
 
-    getWebDevTec = ->
-      vm.awesomeThings = webDevTec.getTec()
-      angular.forEach vm.awesomeThings, (awesomeThing) ->
-        awesomeThing.rank = Math.random()
-        return
-      return
-
-    vm.awesomeThings = []
-    vm.classAnimation = ''
-    vm.creationDate = 1445100751937
-    vm.showToastr = showToastr
-    activate()
-    return
+angular.module('devme').controller 'MainController', ['$state', MainCtrl]
