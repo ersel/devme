@@ -4,19 +4,6 @@ angular.module 'devme'
     vm = this
     vm.skills = []
     vm.availableSkills = []
-    activate = ->
-      getWebDevTec()
-      $timeout (->
-        vm.classAnimation = 'rubberBand'
-        return
-      ), 4000
-      return
-
-    showToastr = (balls) ->
-      alert "sdasd"
-      toastr.info 'Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>'
-      vm.classAnimation = ''
-      return
 
     funcAsync = (query) ->
       console.log query
