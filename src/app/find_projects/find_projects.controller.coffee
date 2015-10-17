@@ -1,4 +1,4 @@
-class FindProjects
+class FindProjectsCtrl
 
   constructor: (@$state) ->
     'ngInject'
