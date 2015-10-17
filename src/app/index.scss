@@ -30,46 +30,80 @@ body {
   font-family: 'Playfair Display', serif;
 }
 
-header {
-  height: 100px;
-  background-color: $darkgrey;
-  color: white;
-  position: relative;
-  border-bottom: 5px solid $green;
+// header {
+//   height: 100px;
+//   background-color: $white;
+//   color: $black;
+//   position: relative;
+//   border-bottom: 5px solid $black;
 
-  .logo {
-    text-align: center;
-    padding-top: 14px;
-    font-size: 40px;
+//   .logo {
+//     text-align: center;
+//     padding-top: 14px;
+//     font-size: 40px;
 
-    a {
-      display: inline-block;
-      color: $white;
-      text-decoration: none;
-      padding: 3px 20px;
-    }
-  }
+//     a {
+//       display: inline-block;
+//       color: $black;
+//       text-decoration: none;
+//       padding: 3px 20px;
+//     }
+//   }
 
-  .login-btn {
-    position: absolute;
-    top:      15px;
-    right:    15px;
-    display:  inline-block;
-    cursor:   pointer;
-    img {
-      width:  40px;
-      height: 40px;
-    }
-  }
-}
+//   .login-btn {
+//     position: absolute;
+//     top:      15px;
+//     right:    15px;
+//     display:  inline-block;
+//     cursor:   pointer;
+//     img {
+//       width:  40px;
+//       height: 40px;
+//     }
+//   }
+// }
 
-// Main page
 #main-page {
-  width: 100%;
+  .main-choices {
+    display: table;
+    width: 100%;
+  }
   .main-choice {
-    width: 50%;
-    display: inline-block;
-    height: 500px;
-    float: left;
+    display: table-cell;
+    width:   50%;
+    height:  100vh;
+    transition: .5s all;
+    .choice-text {
+      height:   100vh;
+      padding-top: 33vh;
+      cursor:   pointer;
+      p {
+        font-size:   40px;
+        text-align:  center;
+        line-height: 75px;
+      }
+      p strong {
+        transition: .3s all;
+        font-size: 50px;
+      }
+      &:hover p strong {
+        color: $red
+      }
+    }
+  }
+  .main-choice-left {
+    background-color: $white;
+    color: $black;
+    border-right: 10px solid $red;
+    &:hover {
+      width: 55%;
+    }
+  }
+  .main-choice-right {
+    background: url("../assets/images/bg_blue_tile.png");
+    color: $white;
+    &:hover {
+      width: 55%;
+    }
   }
 }
