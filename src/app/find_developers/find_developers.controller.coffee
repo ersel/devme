@@ -1,7 +1,8 @@
 class FindDevelopersCtrl
 
   constructor: (@$state, @$http, @$scope, @mapLocation) ->
-    @mapLocation = false
+    @showDevelopersList = false
+    @mapLocation        = false
     @skills = []
     @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C']
     newSkills = ['Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript']
@@ -18,12 +19,13 @@ class FindDevelopersCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
-      google.maps.event.trigger(@$scope.map, 'resize');
+      google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
+  showDevelopersList: -> @showDevelopersList
 
-  listDevelopers: -> @$state.go 'findDevs.listDevelopers'
+  listDevelopers: -> @showDevelopersList = true
 
   addMarker: (location) =>
     console.log @$scope.map

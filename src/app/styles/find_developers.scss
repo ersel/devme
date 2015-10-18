@@ -6,6 +6,24 @@ $green:    #99B898;
 $white:    #FFFFFF;
 $black:    #000000;
 
+.red-btn {
+  padding: 10px 40px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  color: $red;
+  border: 2px solid $red;
+  background-color: white;
+  transition: .3s all;
+  &:hover {
+    background-color: $red;
+    color: white;
+  }
+  i {
+    margin-right: 7px;
+  }
+}
+
 #find-developers-page {
   .dev-stripe {
     padding: 50px 0;
@@ -51,20 +69,6 @@ $black:    #000000;
       font-weight: bold;
       margin: 0 20px;
     }
-    .anywhere-btn {
-      padding: 10px 40px;
-      display: inline-block;
-      border-radius: 5px;
-      cursor: pointer;
-      color: $red;
-      border: 2px solid $red;
-      background-color: white;
-      transition: .3s all;
-      &:hover {
-        background-color: $red;
-        color: white;
-      }
-    }
   }
   .ui-select-match-item {
     padding: 5px 10px;
@@ -103,9 +107,16 @@ $black:    #000000;
       border-bottom: 1px solid $red;
       margin: 20px;
       background-color: white;
-        .dev-name {
-          color: $red;
-        }
+      position: relative;
+      .dev-name {
+        color: $red;
+      }
+      .dev-me-btn {
+        position: absolute;
+        top: 25px;
+        right: 20px;
+        padding: 5px 10px;
+      }
     }
   }
 }

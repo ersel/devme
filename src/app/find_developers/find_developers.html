@@ -8,18 +8,19 @@
        </ui-select>
     </div>
   </div>
-  <div class="dev-stripe location">
+  <div class="dev-stripe location" ng-hide="FindDevelopersCtrl.showDevelopersList">
     <div class="container">
       <strong>From where?</strong>
       <div class="location-input">
         <input type="text" g-places-autocomplete ng-model="FindDevelopersCtrl.mapLocation" ng-change="FindDevelopersCtrl.updateMap()" placeholder="Choose the location" />
         <span class="or">OR</span>
-        <div class="anywhere-btn" ng-click="FindDevelopersCtrl.listDevelopers()">anywhere</div>
+        <div class="anywhere-btn red-btn" ng-click="FindDevelopersCtrl.listDevelopers()"><i class="fa fa-globe"></i> anywhere</div>
       </div>
       <map ng-show="FindDevelopersCtrl.showMap()" center="-34.397, 150.644" zoom="12"></map>
     </div>
   </div>
 
+  <!-- <div class="developers-list" ng-show="FindDevelopersCtrl.showDevelopersList"> -->
   <div class="developers-list">
     <p class="title">Developers</p>
     <div class="container">
@@ -28,18 +29,21 @@
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
     </div>
   </div>
