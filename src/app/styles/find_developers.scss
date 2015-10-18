@@ -34,6 +34,11 @@ $black:    #000000;
   }
   .location {
     border-top: 5px solid $red;
+    map {
+      margin: 50px 0;
+      border: 5px solid $darkgrey;
+      height: 400px !important;
+    }
     .location-input {
       margin: 20px;
     }
