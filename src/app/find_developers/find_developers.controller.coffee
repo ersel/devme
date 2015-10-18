@@ -4,6 +4,7 @@ class FindDevelopersCtrl
     @showDeveloperMessage  = false
     @showDevelopersList    = false
     @mapLocation           = false
+    @lastInfoWindow        = false
     @skills = []
     @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C']
     newSkills = ['Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript']
@@ -80,6 +81,8 @@ class FindDevelopersCtrl
         labelClass: 'labels')
 
       newMarker.addListener 'click', =>
+        @lastInfoWindow.close() if @lastInfoWindow
+        @lastInfoWindow = infowindow
         infowindow.open @$scope.map, newMarker
         return
 
