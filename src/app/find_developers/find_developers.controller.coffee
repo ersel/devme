@@ -16,6 +16,9 @@ class FindDevelopersCtrl
     @availableSkills.push newSkills...
     newSkills = ['FORTRAN', 'Haxe', 'Racket', 'Logos']
     @availableSkills.push newSkills...
+
+    @developers = []
+
     'ngInject'
 
   refreshResults: ($select) ->
@@ -46,16 +49,22 @@ class FindDevelopersCtrl
   showMap: -> (typeof @mapLocation) is 'object'
 
   addMarker: (location) =>
-    contentString = '<div class="map-project">' +
-      '<h4 class="map-project-title">My awesome project!</h4>' +
-        '<div class="map-project-description">' +
-            'This is my awesome project. Join me if you would want to collaborate!' +
+    contentString = '<div class="map-project map-dev">' +
+      '<h4 class="map-dev-title">Sebastian Muszynski</h4>' +
+        '<div class="map-dev-details">' +
+            'AngularJS, GIT, Java' +
+            'AngularJS, GIT, Java' +
+            'AngularJS, GIT, Java' +
         '</div>' +
+        '<div class="dev-me-btn red-btn dev-me-map-btn"><i class="fa fa-paper-plane"></i>DevMe</div>' +
       '</div>'
 
     infowindow = new google.maps.InfoWindow(
       content: contentString
     )
+
+    google.maps.event.addListener infowindow, 'domready', =>
+      $('.dev-me-map-btn').click => @devMe()
 
     newMarker = new MarkerWithLabel(
       position: location
