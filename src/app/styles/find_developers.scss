@@ -81,4 +81,26 @@ $black:    #000000;
     font-size: 23px;
     margin-left: 5px;
   }
+
+  .developers-list {
+    margin: 50px 0 100px;
+    background-color: $green;
+    padding: 100px 0;
+    p {
+      text-align: center;
+      strong {
+        font-size: 50px;
+        color: white;
+        text-shadow: 2px 2px black;
+      }
+    }
+    .developer {
+      font-size: 18px;
+      padding: 25px;
+      border-left: 5px solid $red;
+      border-bottom: 3px solid $red;
+      margin: 15px 0;
+      background-color: white;
+    }
+  }
 }
