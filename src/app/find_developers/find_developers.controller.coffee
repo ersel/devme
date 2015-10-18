@@ -17,6 +17,24 @@ class FindDevelopersCtrl
     @availableSkills.push newSkills...
     'ngInject'
 
+  refreshResults: ($select) ->
+    search = $select.search
+    list = angular.copy($select.items)
+    FLAG = -1
+    #remove last user input
+    list = list.filter((item) ->
+      item.id != FLAG
+    )
+    if !search
+      #use the predefined list
+      $select.items = list
+    else
+      #manually add user input and set selection
+      userInputItem = search
+      if list.filter((elem) -> elem == search).length is 0
+        $select.items = [ userInputItem ].concat(list)
+    return
+
   updateMap: ->
     if (typeof @mapLocation) is 'object'
       google.maps.event.trigger(@$scope.map, 'resize')
@@ -28,7 +46,6 @@ class FindDevelopersCtrl
   listDevelopers: -> @showDevelopersList = true
 
   addMarker: (location) =>
-    console.log @$scope.map
     new google.maps.Marker
       position: location,
       map: @$scope.map,

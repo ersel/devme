@@ -4,7 +4,7 @@
       <strong>Skills:</strong>
       <ui-select class="select-skills" multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled">
          <ui-select-match placeholder="Select main skills...">{{ $item }}</ui-select-match>
-         <ui-select-choices repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
+         <ui-select-choices refresh="FindDevelopersCtrl.refreshResults($select)" refresh-delay="250" repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
        </ui-select>
     </div>
   </div>
