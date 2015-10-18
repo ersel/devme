@@ -32,7 +32,7 @@
       <p class="title">But here's my profile, so <span class="red">DevMe</span>, maybe?</p>
     </div>
     <div class="container">
-      <div class="developer" ng-repeat="dev in FindDevelopersCtrl.getDevelopers()">
+      <div class="developer" ng-repeat="dev in FindDevelopersCtrl.getDevelopers() | filter: FindDevelopersCtrl.skillsFilter ">
         <p class="dev-name">
           <strong>{{ dev.name }}</strong>
         </p>
