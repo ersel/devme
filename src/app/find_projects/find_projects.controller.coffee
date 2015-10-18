@@ -3,8 +3,8 @@ class FindProjectsCtrl
   constructor: (@$state, @$http, @$scope, @$modal) ->
     @showProjectMessage  = false
     @showProjectsList    = false
-    @mapLocation           = false
-    @lastInfoWindow        = false
+    @mapLocation         = false
+    @lastInfoWindow      = false
     @skills = []
     @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C']
     newSkills = ['Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript']
@@ -83,8 +83,7 @@ class FindProjectsCtrl
       @lastInfoWindow.close() if @lastInfoWindow
       @lastInfoWindow = infowindow
       infowindow.open @$scope.map, newMarker
-      return
-
+      
     newMarker.addListener 'click', =>
       infowindow.open @$scope.map, newMarker
 

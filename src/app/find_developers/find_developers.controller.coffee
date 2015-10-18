@@ -28,6 +28,11 @@ class FindDevelopersCtrl
 
     'ngInject'
 
+  skillsFilter: (developer) =>
+    for requiredSkill in @skills
+      return false if developer.skills.indexOf(requiredSkill) < 0
+    true
+
   refreshResults: ($select) ->
     search = $select.search
     list = angular.copy($select.items)
