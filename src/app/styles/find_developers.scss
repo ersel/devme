@@ -1,3 +1,72 @@
-#find-developers-page {
+$darkgrey: #2A363B;
+$red:      #E84A5F;
+$pink:     #FF847C;
+$orange:   #FECEA8;
+$green:    #99B898;
+$white:    #FFFFFF;
+$black:    #000000;
 
+#find-developers-page {
+  .dev-stripe {
+    padding: 80px 0;
+    font-size: 20px;
+    strong {
+      font-size: 25px;
+    }
+    p {
+      line-height: 45px;
+      margin: 10px 20px;
+    }
+  }
+  .skills {
+    background: url("../assets/images/bg_blue_tile.png");
+    color: white;
+    .select-skills {
+      width: 60%;
+      margin-top: 15px;
+      padding: 10px;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+      border-color: $red;
+      color: white;
+    }
+  }
+  .location {
+    border-top: 5px solid $red;
+    .location-input {
+      margin: 20px;
+    }
+    input {
+      padding: 10px;
+      width: 500px;
+    }
+    span.or {
+      font-size: 25px;
+      font-weight: bold;
+      margin: 0 20px;
+    }
+    .anywhere-btn {
+      padding: 10px 40px;
+      display: inline-block;
+      background-color: $red;
+      color: white;
+      border-radius: 5px;
+    }
+  }
+  .ui-select-match-item {
+    padding: 5px 10px;
+    border: none;
+    border-left:   2px solid $red;
+    border-bottom: 2px solid $red;
+    margin: 5px;
+    background-color: $orange;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  .ui-select-match-close {
+    font-size: 23px;
+    margin-left: 5px;
+  }
 }
