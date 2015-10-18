@@ -12,7 +12,7 @@
     <div class="container">
       <strong>From where?</strong>
       <div class="location-input">
-        <input type="text" g-places-autocomplete ng-model="FindDevelopersCtrl.mapLocation" ng-change="FindDevelopersCtrl.someStupidFnc()" placeholder="Choose the location" />
+        <input type="text" g-places-autocomplete ng-model="FindDevelopersCtrl.mapLocation" ng-change="FindDevelopersCtrl.updateMap()" placeholder="Choose the location" />
         <span class="or">OR</span>
         <div class="anywhere-btn" ng-click="FindDevelopersCtrl.listDevelopers()">anywhere</div>
       </div>
