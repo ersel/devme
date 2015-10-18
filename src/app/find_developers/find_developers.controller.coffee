@@ -93,4 +93,7 @@ class FindDevelopersCtrl
       animation:    true,
       templateUrl: 'app/message/message.html',
       size:        'lg'
+
+  clickBack: -> location.reload()
+
 angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope', '$modal', FindDevelopersCtrl]

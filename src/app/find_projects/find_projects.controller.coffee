@@ -62,4 +62,7 @@ class FindProjectsCtrl
       animation:    true,
       templateUrl: 'app/message/message.html',
       size:        'lg'
+
+  clickBack: -> location.reload()
+
 angular.module('devme').controller 'FindProjectsController', ['$state', '$http', '$scope', '$modal', FindProjectsCtrl]

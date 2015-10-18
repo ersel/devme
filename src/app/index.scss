@@ -18,11 +18,21 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 // injector
 // endinjector
 
+$darkgrey: #2A363B;
+$red:      #E84A5F;
+$pink:     #FF847C;
+$orange:   #FECEA8;
+$green:    #99B898;
+$white:    #FFFFFF;
+$black:    #000000;
+
 body {
   font-family: 'Playfair Display', serif;
 }
 
-.comeback {
+.comeback,
+.back-button {
+  display: inline-block;
   z-index: 5;
   position: fixed;
   top: 10px;
@@ -30,8 +40,21 @@ body {
   text-decoration: none;
   font-size: 30px;
   color: $pink;
+  width: 25px;
   &:hover {
     color: white;
+  }
+}
+
+.back-button {
+  left: 20px;
+}
+
+#find-developers-page,
+#find-projects-page {
+  .comeback:hover,
+  .back-button:hover {
+    color: $red;
   }
 }
 

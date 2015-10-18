@@ -1,4 +1,7 @@
 <div id="find-developers-page">
+  <a class="comeback" href="/">
+    <i class="fa fa-home"></i>
+  </a>
   <div class="dev-stripe skills" ng-hide="FindDevelopersCtrl.showDevelopersList">
     <div class="container">
       <strong>Skills:</strong>
@@ -21,6 +24,9 @@
   </div>
 
   <div class="developers-list" ng-show="FindDevelopersCtrl.showDevelopersList">
+    <a class="back-button" href="#" ng-click="FindDevelopersCtrl.clickBack()">
+      <i class="fa fa-undo fa-3"></i>
+    </a>
     <div class="song-title">
       <p class="title">Hey, I just met you, and this is crazy,</p>
       <p class="title">But here's my profile, so <span class="red">DevMe</span>, maybe?</p>
