@@ -22,8 +22,10 @@ class FindProjectsCtrl
 
     @$http.get('app/data/projects.json').success (data) =>
       @projects = data
+      @addMarker project for project in @projects
     , (error) ->
       console.log error
+
 
     'ngInject'
 
@@ -47,7 +49,6 @@ class FindProjectsCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
-      @addMarker project for project in @projects
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 

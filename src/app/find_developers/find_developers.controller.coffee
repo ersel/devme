@@ -22,6 +22,7 @@ class FindDevelopersCtrl
 
     @$http.get('app/data/developers.json').success (data) =>
       @developers = data
+      @addMarker dev for dev in @developers
     , (error) ->
       console.log error
 
@@ -47,7 +48,6 @@ class FindDevelopersCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
-      @addMarker dev for dev in @developers
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
