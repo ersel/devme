@@ -83,24 +83,29 @@ $black:    #000000;
   }
 
   .developers-list {
-    margin: 50px 0 100px;
-    background-color: $green;
-    padding: 100px 0;
-    p {
+    margin-bottom: 100px;
+    padding: 50px 0;
+    p.title {
+      font-size: 50px;
+      color: $darkgrey;
+      font-weight: bold;
       text-align: center;
-      strong {
-        font-size: 50px;
-        color: white;
-        text-shadow: 2px 2px black;
-      }
+      padding-bottom: 20px;
     }
     .developer {
       font-size: 18px;
-      padding: 25px;
-      border-left: 5px solid $red;
-      border-bottom: 3px solid $red;
-      margin: 15px 0;
+      float: left;
+      padding: 15px 30px;
+      height: 100px;
+      width: 40%;
+      min-width: 500px;
+      border-left: 3px solid $red;
+      border-bottom: 1px solid $red;
+      margin: 20px;
       background-color: white;
+        .dev-name {
+          color: $red;
+        }
     }
   }
 }
