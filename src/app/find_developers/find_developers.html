@@ -2,7 +2,7 @@
   <div class="dev-stripe skills">
     <div class="container">
       <strong>Skills:</strong>
-      <ui-select class="select-skills" multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled">
+      <ui-select class="select-skills" multiple tagging="true" tagging-label="" theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled">
          <ui-select-match placeholder="Select main skills...">{{ $item }}</ui-select-match>
          <ui-select-choices repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
        </ui-select>
