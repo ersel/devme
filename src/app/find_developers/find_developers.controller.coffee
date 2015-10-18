@@ -14,7 +14,6 @@ class FindDevelopersCtrl
     @availableSkills.push newSkills...
     newSkills = ['FORTRAN', 'Haxe', 'Racket', 'Logos']
     @availableSkills.push newSkills...
-
     'ngInject'
 
   updateMap: ->
@@ -25,5 +24,15 @@ class FindDevelopersCtrl
   showMap: -> (typeof @mapLocation) is 'object'
 
   listDevelopers: -> @$state.go 'findDevs.listDevelopers'
+
+  addMarker: (location) =>
+    console.log @$scope.map
+    new google.maps.Marker({
+          position: location,
+          map: @$scope.map,
+          draggable: false,
+          animation: google.maps.Animation.DROP
+        });
+
 
 angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope',   FindDevelopersCtrl]
