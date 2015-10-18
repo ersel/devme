@@ -35,7 +35,7 @@
       <div class="project" ng-repeat="project in FindProjectsCtrl.getProjects()">
         <p class="dev-name"><strong>{{ project.name }}</strong></p>
         <p>{{ project.author.name }}</p>
-        <p class="dev-skills">{{ projects.description }}</p>
+        <p class="project-description">{{ project.description | limitTo: '200' }}...</p>
         <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>Join</div>
       </div>
     </div>

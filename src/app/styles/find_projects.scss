@@ -7,5 +7,10 @@ $white:    #FFFFFF;
 $black:    #000000;
 
 #find-projects-page {
-
+  .project {
+    height: 200px !important;
+  }
+  .project-description {
+    font-size: 14px;
+  }
 }
