@@ -79,19 +79,17 @@ class FindProjectsCtrl
         labelAnchor: new (google.maps.Point)(22, 50)
         labelClass: 'labels')
 
-<<<<<<< HEAD
     newMarker.addListener 'click', =>
       @lastInfoWindow.close() if @lastInfoWindow
       @lastInfoWindow = infowindow
       infowindow.open @$scope.map, newMarker
       return
-=======
-      newMarker.addListener 'click', =>
-        infowindow.open @$scope.map, newMarker
+
+    newMarker.addListener 'click', =>
+      infowindow.open @$scope.map, newMarker
 
     google.maps.event.addListener infowindow, 'domready', =>
       $('.dev-me-map-btn').click => @devMe()
->>>>>>> 7d5a2a751c25d5212a547d48738490b2739abb8b
 
   showProjectsList: -> @showProjectsList
   listProjects:     -> @showProjectsList = true
