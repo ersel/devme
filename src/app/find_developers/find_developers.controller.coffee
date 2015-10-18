@@ -38,17 +38,22 @@ class FindDevelopersCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
+      myLatLng = @mapLocation.geometry.location
+      @addMarker myLatLng
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
 
   addMarker: (location) =>
-    new google.maps.Marker
-      position: location,
-      map: @$scope.map,
-      draggable: false,
-      animation: google.maps.Animation.DROP
+    new MarkerWithLabel(
+      position: location
+      draggable: false
+      icon: ' '
+      map: @$scope.map
+      labelContent: '<i class="fa fa-user fa-3x" style="color:#E84A5F;"></i>'
+      labelAnchor: new (google.maps.Point)(22, 50)
+      labelClass: 'labels')
 
   showDevelopersList: -> @showDevelopersList
   listDevelopers:     -> @showDevelopersList = true
