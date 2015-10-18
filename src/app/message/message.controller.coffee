@@ -5,5 +5,4 @@ class MessageCtrl
   sendMessage: ->
     @$modalInstance.dismiss 'cancel'
 
-
 angular.module('devme').controller 'MessageController', ['$modalInstance', MessageCtrl]
