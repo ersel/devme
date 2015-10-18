@@ -3,27 +3,24 @@ class FindDevelopersCtrl
   constructor: (@$state, @$http, @$scope, @mapLocation) ->
     @mapLocation = null
     @skills = []
+    @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C']
+    newSkills = ['Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript']
+    @availableSkills.push newSkills...
+    newSkills = ['TeX', 'Swift', 'Scala', 'Emacs Lisp', 'Haskell', 'Lua', 'Clojure', 'Matlab', 'Arduino', 'Groovy']
+    @availableSkills.push newSkills...
+    newSkills = ['Puppet', 'Rust', 'PowerShell', 'Erlang', 'Visual Basic', 'Processing', 'Assembly', 'TypeScript', 'XSLT']
+    @availableSkills.push newSkills...
+    newSkills = ['ActionScript', 'ASP', 'OCaml', 'D', 'Scheme', 'Dart', 'Common Lisp', 'Julia', 'F#', 'Elixir']
+    @availableSkills.push newSkills...
+    newSkills = ['FORTRAN', 'Haxe', 'Racket', 'Logos']
+    @availableSkills.push newSkills...
+
     'ngInject'
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
       @$scope.map.setCenter @mapLocation.geometry.location
 
-###
-  funcAsync: (query) ->
-    console.log query
-    reqStr = "https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&inname=" + query
-    console.log query
-    @$http.get(reqStr).then ((response) =>
-      @availableSkills = response.data.items.map (item) -> item.name
-      console.log response
-      return
-    ), ->
-      console.log 'something seems to go slightly wrong'
-      return
-    return
-###
-
-
+  listDevelopers: -> @$state.go 'findDevs.listDevelopers'
 
 angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope',   FindDevelopersCtrl]

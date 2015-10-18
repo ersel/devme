@@ -4,7 +4,7 @@
       <strong>Skills:</strong>
       <ui-select class="select-skills" multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled">
          <ui-select-match placeholder="Select main skills...">{{ $item }}</ui-select-match>
-         <ui-select-choices refresh="FindDevelopersCtrl.funcAsync($select.search)" refresh-delay="1000" repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
+         <ui-select-choices repeat="skill in FindDevelopersCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
        </ui-select>
     </div>
   </div>
@@ -13,8 +13,9 @@
       <strong>From where?</strong>
         <input type="text" g-places-autocomplete ng-model="FindDevelopersCtrl.mapLocation" ng-change="FindDevelopersCtrl.updateMap()" placeholder="Choose the location" />
         <span class="or">OR</span>
-        <div class="anywhere-btn" ng-click="">anywhere</div>
-        <map center="-34.397, 150.644" zoom="12"></map>
+
+        <div class="anywhere-btn" ng-click="FindDevelopersCtrl.listDevelopers()">anywhere</div>
+        <map center="-34.397, 150.644" zoom="8"></map>
       </div>
     </div>
   </div>
