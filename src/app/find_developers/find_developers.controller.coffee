@@ -86,8 +86,8 @@ class FindDevelopersCtrl
     @showDeveloperMessage = true
     @$modal.open
       animation:    true,
-      templateUrl: 'app/message/message.html',
-      size:        'lg'
+      templateUrl:  'app/message/message.html',
+      size:         'lg'
 
   clickBack: -> location.reload()
 
