@@ -19,6 +19,11 @@ class FindDevelopersCtrl
 
     @developers = []
 
+    @$http.get('app/data/developers.json').success (data) =>
+      @developers = data
+    , (error) ->
+      console.log error
+
     'ngInject'
 
   refreshResults: ($select) ->
@@ -41,43 +46,45 @@ class FindDevelopersCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
-      myLatLng = @mapLocation.geometry.location
-      @addMarker myLatLng
+      @addMarker dev for dev in @developers
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
 
-  addMarker: (location) =>
-    contentString = '<div class="map-project map-dev">' +
-      '<h4 class="map-dev-title">Sebastian Muszynski</h4>' +
-        '<div class="map-dev-details">' +
-            'AngularJS, GIT, Java' +
-            'AngularJS, GIT, Java' +
-            'AngularJS, GIT, Java' +
-        '</div>' +
-        '<div class="dev-me-btn red-btn dev-me-map-btn"><i class="fa fa-paper-plane"></i>DevMe</div>' +
-      '</div>'
+  addMarker: (developer) =>
+    if !!developer?
+      contentString = '<div class="map-project map-dev">' +
+        '<h4 class="map-dev-title">' + developer.name + '</h4>' +
+          '<div class="map-dev-details">' +
+              'AngularJS, GIT, Java' +
+              'AngularJS, GIT, Java' +
+              'AngularJS, GIT, Java' +
+          '</div>' +
+          '<div class="dev-me-btn red-btn dev-me-map-btn"><i class="fa fa-paper-plane"></i>DevMe</div>' +
+        '</div>'
 
-    infowindow = new google.maps.InfoWindow(
-      content: contentString
-    )
+      infowindow = new google.maps.InfoWindow(
+        content: contentString
+      )
+
+      newMarker = new MarkerWithLabel(
+        position:
+          lat: developer.latitude
+          lng: developer.longitude
+        draggable: false
+        icon: ' '
+        map: @$scope.map
+        labelContent: '<i class="fa fa-user fa-2x" style="color:#E84A5F;"></i>'
+        labelAnchor: new (google.maps.Point)(22, 50)
+        labelClass: 'labels')
+
+      newMarker.addListener 'click', =>
+        infowindow.open @$scope.map, newMarker
+        return
 
     google.maps.event.addListener infowindow, 'domready', =>
       $('.dev-me-map-btn').click => @devMe()
-
-    newMarker = new MarkerWithLabel(
-      position: location
-      draggable: false
-      icon: ' '
-      map: @$scope.map
-      labelContent: '<i class="fa fa-user fa-2x" style="color:#E84A5F;"></i>'
-      labelAnchor: new (google.maps.Point)(22, 50)
-      labelClass: 'labels')
-
-    newMarker.addListener 'click', =>
-      infowindow.open @$scope.map, newMarker
-      return
 
   showDevelopersList: -> @showDevelopersList
   listDevelopers:     -> @showDevelopersList = true
