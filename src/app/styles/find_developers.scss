@@ -21,6 +21,16 @@ $black:    #000000;
   .skills {
     background: url("../assets/images/bg_blue_tile.png");
     color: white;
+    .select-skills {
+      width: 60%;
+      margin-top: 15px;
+      padding: 10px;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+      border-color: $red;
+      color: white;
+    }
   }
   .location {
     border-top: 5px solid $red;
@@ -43,5 +53,20 @@ $black:    #000000;
       color: white;
       border-radius: 5px;
     }
+  }
+  .ui-select-match-item {
+    padding: 5px 10px;
+    border: none;
+    border-left:   2px solid $red;
+    border-bottom: 2px solid $red;
+    margin: 5px;
+    background-color: $orange;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 1px;
+  }
+  .ui-select-match-close {
+    font-size: 23px;
+    margin-left: 5px;
   }
 }
