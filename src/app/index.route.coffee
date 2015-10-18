@@ -17,6 +17,11 @@ angular.module 'devme'
         templateUrl: 'app/find_developers/list_developers.html'
         controller: 'ListDevelopersController'
         controllerAs: 'ListDevelopersCtrl'
+      .state 'findDevs.submitProject',
+        url: '/submit_project'
+        templateUrl: 'app/find_developers/submit_project.html'
+        controller: 'SubmitProjectController'
+        controllerAs: 'SubmitProjectCtrl'
       .state 'findProjects',
         url: '/projects'
         templateUrl: 'app/find_projects/find_projects.html'
