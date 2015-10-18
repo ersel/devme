@@ -54,9 +54,16 @@ $black:    #000000;
     .anywhere-btn {
       padding: 10px 40px;
       display: inline-block;
-      background-color: $red;
-      color: white;
       border-radius: 5px;
+      cursor: pointer;
+      color: $red;
+      border: 2px solid $red;
+      background-color: white;
+      transition: .3s all;
+      &:hover {
+        background-color: $red;
+        color: white;
+      }
     }
   }
   .ui-select-match-item {
