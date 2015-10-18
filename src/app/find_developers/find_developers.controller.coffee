@@ -5,9 +5,8 @@ class FindDevelopersCtrl
     @skills = []
     'ngInject'
 
-  someStupidFnc: ->
+  updateMap: ->
     if (typeof @mapLocation) is 'object'
-      console.log
       @$scope.map.setCenter @mapLocation.geometry.location
 
 ###
