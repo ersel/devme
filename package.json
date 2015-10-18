@@ -1,11 +1,11 @@
 {
   "name": "devme",
   "version": "0.0.0",
+  "dependencies": {},
   "scripts": {
-    "build": "gulp",
-    "start": "gulp serve"
+    "test": "gulp test"
   },
-  "dependencies": {
+  "devDependencies": {
     "estraverse": "~4.1.0",
     "gulp": "~3.9.0",
     "gulp-autoprefixer": "~3.0.2",
