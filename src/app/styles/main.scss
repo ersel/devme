@@ -7,6 +7,7 @@ $white:    #FFFFFF;
 $black:    #000000;
 
 #main-page {
+  z-index: 10;
   .main-choices {
     display: table;
     width: 100%;
