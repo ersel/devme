@@ -1,2 +1,59 @@
 <div id="find-projects-page">
+  <div class="dev-stripe skills" ng-hide="FindProjectsCtrl.showProjectsList">
+    <div class="container">
+      <strong>Skills:</strong>
+      <ui-select class="select-skills" multiple theme="bootstrap" ng-model="FindProjectsCtrl.skills" ng-disabled="disabled">
+         <ui-select-match placeholder="Select main skills...">{{ $item }}</ui-select-match>
+         <ui-select-choices refresh="FindProjectsCtrl.refreshResults($select)" refresh-delay="250" repeat="skill in FindProjectsCtrl.availableSkills | filter:$select.search"> {{ skill }}</ui-select-choices>
+       </ui-select>
+    </div>
+  </div>
+  <div class="dev-stripe location" ng-hide="FindProjectsCtrl.showProjectsList">
+    <div class="container">
+      <strong>From where?</strong>
+      <div class="location-input">
+        <input type="text" g-places-autocomplete ng-model="FindProjectsCtrl.mapLocation" ng-change="FindProjectsCtrl.updateMap()" placeholder="Choose the location" />
+        <span class="or">OR</span>
+        <div class="anywhere-btn red-btn" ng-click="FindProjectsCtrl.listProjects()"><i class="fa fa-globe"></i> anywhere</div>
+      </div>
+      <map center="-34.397, 150.644" zoom="12"></map>
+    </div>
+  </div>
+
+  <div class="projects-list" ng-show="FindProjectsCtrl.showProjectsList">
+    <div class="song-title">
+      <p class="title">Hey, I just met you, and this is crazy,</p>
+      <p class="title">But here's my <strong>project</strong>, so <span class="red">join me</span>, maybe?</p>
+    </div>
+    <div class="container">
+      <div class="project">
+        <p class="dev-name">
+          <strong>Sebastian Muszyński</strong>
+        </p>
+        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
+      </div>
+      <div class="project">
+        <p class="dev-name">
+          <strong>Sebastian Muszyński</strong>
+        </p>
+        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
+      </div>
+      <div class="project">
+        <p class="dev-name">
+          <strong>Sebastian Muszyński</strong>
+        </p>
+        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
+      </div>
+      <div class="project">
+        <p class="dev-name">
+          <strong>Sebastian Muszyński</strong>
+        </p>
+        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
+      </div>
+    </div>
+  </div>
 </div>
