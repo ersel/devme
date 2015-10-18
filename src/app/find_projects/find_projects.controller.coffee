@@ -17,7 +17,12 @@ class FindProjectsCtrl
     newSkills = ['FORTRAN', 'Haxe', 'Racket', 'Logos']
     @availableSkills.push newSkills...
 
-    @projects = ['My awesome project!', 'Call me maybe']
+    @projects = []
+
+    @$http.get('app/data/projects.json').success (data) =>
+      @projects = data
+    , (error) ->
+      console.log error
 
     'ngInject'
 
@@ -41,37 +46,42 @@ class FindProjectsCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
-      myLatLng = @mapLocation.geometry.location
-      @addMarker myLatLng
+      @addMarker project for project in @projects
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
 
-  addMarker: (location) =>
-    contentString = '<div class="map-project">' +
-      '<h4 class="map-project-title">My awesome project!</h4>' +
-        '<div class="map-project-description">' +
-            'This is my awesome project. Join me if you would want to collaborate!' +
-        '</div>' +
-      '</div>'
+  addMarker: (project) =>
+    if !!project?
+      contentString = '<div class="map-project">' +
+        '<h4 class="map-project-title">' + project.name + '</h4>' +
+        '<h5 class="map-project-title">' + project.author.name + '</h5>' +
+          '<div class="map-project-description">' +
+              project.description +
+          '</div>' +
+        '</div>'
 
-    infowindow = new google.maps.InfoWindow(
-      content: contentString
-    )
+      infowindow = new google.maps.InfoWindow(
+        content: contentString
+      )
 
-    newMarker = new MarkerWithLabel(
-      position: location
-      draggable: false
-      icon: ' '
-      map: @$scope.map
-      labelContent: '<i class="fa fa-desktop fa-2x" style="color:#E84A5F;"></i>'
-      labelAnchor: new (google.maps.Point)(22, 50)
-      labelClass: 'labels')
+      newMarker = new MarkerWithLabel(
+        position:
+          lat: project.latitude
+          lng: project.longitude
+        draggable: false
+        icon: ' '
+        map: @$scope.map
+        labelContent: '<i class="fa fa-desktop fa-2x" style="color:#E84A5F;"></i>'
+        labelAnchor: new (google.maps.Point)(22, 50)
+        labelClass: 'labels')
 
-    newMarker.addListener 'click', =>
-      infowindow.open @$scope.map, newMarker
-      return
+      newMarker.addListener 'click', =>
+        infowindow.open @$scope.map, newMarker
+
+    google.maps.event.addListener infowindow, 'domready', =>
+      $('.dev-me-map-btn').click => @devMe()
 
   showProjectsList: -> @showProjectsList
   listProjects:     -> @showProjectsList = true

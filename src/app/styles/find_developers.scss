@@ -130,6 +130,10 @@ $black:    #000000;
       .dev-name {
         color: $red;
       }
+      .dev-skills {
+        max-width: 330px;
+        font-size: 15px;
+      }
       .dev-me-btn {
         position: absolute;
         top: 25px;
