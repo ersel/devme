@@ -41,17 +41,37 @@ class FindProjectsCtrl
 
   updateMap: ->
     if (typeof @mapLocation) is 'object'
+      myLatLng = @mapLocation.geometry.location
+      @addMarker myLatLng
       google.maps.event.trigger(@$scope.map, 'resize')
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
 
   addMarker: (location) =>
-    new google.maps.Marker
-      position: location,
-      map: @$scope.map,
-      draggable: false,
-      animation: google.maps.Animation.DROP
+    contentString = '<div class="map-project">' +
+      '<h4 class="map-project-title">My awesome project!</h4>' +
+        '<div class="map-project-description">' +
+            'This is my awesome project. Join me if you would want to collaborate!' +
+        '</div>' +
+      '</div>'
+
+    infowindow = new google.maps.InfoWindow(
+      content: contentString
+    )
+
+    newMarker = new MarkerWithLabel(
+      position: location
+      draggable: false
+      icon: ' '
+      map: @$scope.map
+      labelContent: '<i class="fa fa-desktop fa-2x" style="color:#E84A5F;"></i>'
+      labelAnchor: new (google.maps.Point)(22, 50)
+      labelClass: 'labels')
+
+    newMarker.addListener 'click', =>
+      infowindow.open @$scope.map, newMarker
+      return
 
   showProjectsList: -> @showProjectsList
   listProjects:     -> @showProjectsList = true
