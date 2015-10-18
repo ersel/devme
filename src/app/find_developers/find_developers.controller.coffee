@@ -29,12 +29,11 @@ class FindDevelopersCtrl
 
   addMarker: (location) =>
     console.log @$scope.map
-    new google.maps.Marker({
-          position: location,
-          map: @$scope.map,
-          draggable: false,
-          animation: google.maps.Animation.DROP
-        });
+    new google.maps.Marker
+      position: location,
+      map: @$scope.map,
+      draggable: false,
+      animation: google.maps.Animation.DROP
 
 
 angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope',   FindDevelopersCtrl]
