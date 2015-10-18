@@ -1,7 +1,9 @@
 class MessageCtrl
 
-  constructor: ->
+  constructor: (@$modalInstance) ->
 
   sendMessage: ->
+    @$modalInstance.dismiss 'cancel'
 
-angular.module('devme').controller 'MessageController', [MessageCtrl]
+
+angular.module('devme').controller 'MessageController', ['$modalInstance', MessageCtrl]

@@ -87,7 +87,9 @@ class FindDevelopersCtrl
     @$modal.open
       animation:    true,
       templateUrl:  'app/message/message.html',
-      size:         'lg'
+      size:         'lg',
+      controller:   'MessageController',
+      controllerAs: 'MessageCtrl'
 
   clickBack: -> location.reload()
 

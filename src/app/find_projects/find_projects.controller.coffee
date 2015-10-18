@@ -77,11 +77,13 @@ class FindProjectsCtrl
   listProjects:     -> @showProjectsList = true
 
   devMe: ->
-    @showProjectMessage = true
+    @showDeveloperMessage = true
     @$modal.open
       animation:    true,
-      templateUrl: 'app/message/message.html',
-      size:        'lg'
+      templateUrl:  'app/message/message.html',
+      size:         'lg',
+      controller:   'MessageController',
+      controllerAs: 'MessageCtrl'
 
   clickBack: -> location.reload()
 
