@@ -3,6 +3,7 @@ class FindDevelopersCtrl
   constructor: (@$state, @$http, @$scope, @mapLocation) ->
     @mapLocation = null
     @skills = []
+    @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C', 'Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript', 'TeX', 'Swift', 'Scala', 'Emacs Lisp', 'Haskell', 'Lua', 'Clojure', 'Matlab', 'Arduino', 'Groovy', 'Puppet', 'Rust', 'PowerShell', 'Erlang', 'Visual Basic', 'Processing', 'Assembly', 'TypeScript', 'XSLT', 'ActionScript', 'ASP', 'OCaml', 'D', 'Scheme', 'Dart', 'Common Lisp', 'Julia', 'F#', 'Elixir', 'FORTRAN', 'Haxe', 'Racket', 'Logos']
     'ngInject'
 
   someStupidFnc: ->
@@ -10,21 +11,6 @@ class FindDevelopersCtrl
       console.log
       @$scope.map.setCenter @mapLocation.geometry.location
 
-###
-  funcAsync: (query) ->
-    console.log query
-    reqStr = "https://api.stackexchange.com/2.2/tags?order=desc&sort=popular&site=stackoverflow&inname=" + query
-    console.log query
-    @$http.get(reqStr).then ((response) =>
-      @availableSkills = response.data.items.map (item) -> item.name
-      console.log response
-      return
-    ), ->
-      console.log 'something seems to go slightly wrong'
-      return
-    return
-###
-
-
+  listDevelopers: -> @$state.go 'findDevs.listDevelopers'
 
 angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope',   FindDevelopersCtrl]
