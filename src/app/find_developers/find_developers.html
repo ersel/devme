@@ -32,32 +32,11 @@
       <p class="title">But here's my profile, so <span class="red">DevMe</span>, maybe?</p>
     </div>
     <div class="container">
-      <div class="developer">
+      <div class="developer" ng-repeat="dev in FindDevelopersCtrl.getDevelopers()">
         <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
+          <strong>{{ dev.name }}</strong>
         </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="developer">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="developer">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="developer">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
+        <p class="dev-skills">{{ dev.skills }}</p>
         <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
     </div>

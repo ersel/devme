@@ -57,9 +57,7 @@ class FindDevelopersCtrl
       contentString = '<div class="map-project map-dev">' +
         '<h4 class="map-dev-title">' + developer.name + '</h4>' +
           '<div class="map-dev-details">' +
-              'AngularJS, GIT, Java' +
-              'AngularJS, GIT, Java' +
-              'AngularJS, GIT, Java' +
+              developer.skills +
           '</div>' +
           '<div class="dev-me-btn red-btn dev-me-map-btn"><i class="fa fa-paper-plane"></i>DevMe</div>' +
         '</div>'
@@ -88,6 +86,8 @@ class FindDevelopersCtrl
 
   showDevelopersList: -> @showDevelopersList
   listDevelopers:     -> @showDevelopersList = true
+
+  getDevelopers: -> @developers
 
   devMe: ->
     @showDeveloperMessage = true
