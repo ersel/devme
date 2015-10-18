@@ -32,33 +32,11 @@
       <p class="title">But here's my <strong>project</strong>, so <span class="red">join me</span>, maybe?</p>
     </div>
     <div class="container">
-      <div class="project">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="project">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="project">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
-      </div>
-      <div class="project">
-        <p class="dev-name">
-          <strong>Sebastian Muszyński</strong>
-        </p>
-        <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
+      <div class="project" ng-repeat="project in FindProjectsCtrl.getProjects()">
+        <p class="dev-name"><strong>{{ project.name }}</strong></p>
+        <p>{{ project.author.name }}</p>
+        <p class="dev-skills">{{ projects.description }}</p>
+        <div class="dev-me-btn red-btn" ng-click="FindProjectsCtrl.devMe()"><i class="fa fa-paper-plane"></i>Join</div>
       </div>
     </div>
   </div>
