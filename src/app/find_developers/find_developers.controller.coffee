@@ -1,8 +1,9 @@
 class FindDevelopersCtrl
 
-  constructor: (@$state, @$http, @$scope, @mapLocation) ->
-    @showDevelopersList = false
-    @mapLocation        = false
+  constructor: (@$state, @$http, @$scope, @$modal) ->
+    @showDeveloperMessage  = false
+    @showDevelopersList    = false
+    @mapLocation           = false
     @skills = []
     @availableSkills = ['JavaScript', 'Java', 'Python', 'CSS', 'PHP', 'Ruby', 'C++', 'C']
     newSkills = ['Shell', 'C#', 'Objective-C', 'R', 'VimL', 'Go', 'Perl', 'CoffeeScript']
@@ -41,9 +42,6 @@ class FindDevelopersCtrl
       @$scope.map.setCenter @mapLocation.geometry.location
 
   showMap: -> (typeof @mapLocation) is 'object'
-  showDevelopersList: -> @showDevelopersList
-
-  listDevelopers: -> @showDevelopersList = true
 
   addMarker: (location) =>
     new google.maps.Marker
@@ -52,5 +50,13 @@ class FindDevelopersCtrl
       draggable: false,
       animation: google.maps.Animation.DROP
 
+  showDevelopersList: -> @showDevelopersList
+  listDevelopers:     -> @showDevelopersList = true
 
-angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope',   FindDevelopersCtrl]
+  devMe: ->
+    @showDeveloperMessage = true
+    @$modal.open
+      animation:    true,
+      templateUrl: 'app/message/message.html',
+      size:        'lg'
+angular.module('devme').controller 'FindDevelopersController', ['$state', '$http', '$scope', '$modal', FindDevelopersCtrl]

@@ -1,5 +1,5 @@
 <div id="find-developers-page">
-  <div class="dev-stripe skills">
+  <div class="dev-stripe skills" ng-hide="FindDevelopersCtrl.showDevelopersList">
     <div class="container">
       <strong>Skills:</strong>
       <ui-select class="select-skills" multiple theme="bootstrap" ng-model="FindDevelopersCtrl.skills" ng-disabled="disabled">
@@ -21,35 +21,38 @@
   </div>
 
   <div class="developers-list" ng-show="FindDevelopersCtrl.showDevelopersList">
-    <p class="title">Developers</p>
+    <div class="song-title">
+      <p class="title">Hey, I just met you, and this is crazy,</p>
+      <p class="title">But here's my profile, so <span class="red">DevMe</span>, maybe?</p>
+    </div>
     <div class="container">
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
+        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
+        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
+        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
       <div class="developer">
         <p class="dev-name">
           <strong>Sebastian Muszyński</strong>
         </p>
         <p class="dev-skills">Javascript, Java, C++, GIT, AngularJS</p>
-        <div class="dev-me-btn red-btn"><i class="fa fa-paper-plane"></i>DevMe</div>
+        <div class="dev-me-btn red-btn" ng-click="FindDevelopersCtrl.devMe()"><i class="fa fa-paper-plane"></i>DevMe</div>
       </div>
     </div>
   </div>

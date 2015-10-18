@@ -1,0 +1,49 @@
+$darkgrey: #2A363B;
+$red:      #E84A5F;
+$pink:     #FF847C;
+$orange:   #FECEA8;
+$green:    #99B898;
+$white:    #FFFFFF;
+$black:    #000000;
+
+.developer-message {
+  padding: 30px 0 100px;
+  position: relative;
+  p.title {
+    font-size: 30px;
+    color: $darkgrey;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+    .name {
+      color: $red;
+    }
+  }
+  input, textarea {
+    padding: 15px;
+    font-size: 20px;
+    border: 2px solid $darkgrey;
+    border-radius: 5px;
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+  }
+  textarea {
+    height: 300px;
+  }
+  .developer-message-btn {
+    margin: 0 auto;
+    display: inline-block;
+    position: absolute;
+    width: 240px;
+    left: 50%;
+    margin-left: -120px;
+    bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    i {
+      margin-right: 15px;
+    }
+  }
+}
